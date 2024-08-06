@@ -64,3 +64,30 @@ Your goal is to determine if the observed difference in literacy rates between t
 ## Conclusion
 
 The two-sample t-test results indicate a statistically significant difference between the literacy rates of the two states. The state with the lower literacy rate (State 28) will likely receive more resources to improve literacy. This method is a powerful tool for data professionals to make data-driven decisions and help stakeholders allocate resources effectively.
+
+# Python scipy ttest_ind
+## Alternative Hypothesis in `stats.ttest_ind`
+
+The `alternative` parameter in the `stats.ttest_ind` function is used to specify the type of alternative hypothesis you want to test. By default, the t-test is a two-tailed test, which checks for any difference between the two sample means. However, you can specify a one-tailed test by setting the `alternative` parameter.
+
+### Options for `alternative` Parameter:
+
+- **`alternative='less'`**: 
+    - This performs a one-tailed test where the alternative hypothesis is that the mean of the first sample is less than the mean of the second sample.
+    - **Hypotheses**:
+        - \( H_0: \mu_{\text{first}} \geq \mu_{\text{second}} \)
+        - \( H_1: \mu_{\text{first}} < \mu_{\text{second}} \)
+
+- **`alternative='greater'`**:
+    - This performs a one-tailed test where the alternative hypothesis is that the mean of the first sample is greater than the mean of the second sample.
+    - **Hypotheses**:
+        - \( H_0: \mu_{\text{first}} \leq \mu_{\text{second}} \)
+        - \( H_1: \mu_{\text{first}} > \mu_{\text{second}} \)
+
+- **`alternative='two-sided'`** (default):
+    - This performs the standard two-tailed test, where the alternative hypothesis is that the two means are different.
+    - **Hypotheses**:
+        - \( H_0: \mu_{\text{first}} = \mu_{\text{second}} \)
+        - \( H_1: \mu_{\text{first}} \neq \mu_{\text{second}} \)
+
+Use these options to tailor your t-test to the specific hypothesis you are testing.
