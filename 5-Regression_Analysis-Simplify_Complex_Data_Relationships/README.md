@@ -2,6 +2,8 @@
 
 Welcome to **Course 5** of the Google Advanced Data Analytics Certificate! In this course, you’ll dive into regression analysis, focusing on linear and logistic regression models to simplify complex data relationships.
 
+![Regression Analysis](/5-Regression_Analysis-Simplify_Complex_Data_Relationships/images/regression.png)
+
 ## Course Description
 
 The **Google Advanced Data Analytics Certificate** comprises seven courses, with this course being the fifth:
