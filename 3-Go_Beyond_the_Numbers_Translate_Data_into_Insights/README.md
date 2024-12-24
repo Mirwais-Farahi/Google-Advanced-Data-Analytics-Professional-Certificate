@@ -287,3 +287,28 @@ By following the PACE framework, Deloitte achieved several key outcomes:
 #### **Conclusion**
 
 Deloitte’s use of the **PACE framework** and EDA practices helped their client transform its data management and analysis processes. By rebuilding the data infrastructure and creating dynamic dashboards, Deloitte enabled the client to uncover hidden insights and make more agile business decisions, ultimately improving revenue and operational efficiency. This case demonstrates the value of structured data practices in solving complex business problems and driving success.
+
+### Benj as Product Analyst: Data science and storytelling
+#### Exploratory Data Analysis (EDA)
+
+Exploratory Data Analysis (EDA) is a critical step in understanding new datasets. It involves:
+- **Understanding Data**: Analyzing the source, purpose, limitations, and potential biases of the data.
+- **Data Insights**: Gaining insights into patterns, trends, and anomalies in the data to inform further analysis or decision-making.
+  
+EDA helps analysts clean, structure, and visualize data, making it easier to identify significant findings and inform subsequent actions.
+
+#### Data Storytelling for Impact
+
+Effective storytelling with data is essential for communicating insights clearly and driving action. Key elements include:
+- **Categorizing Data**: Grouping data (e.g., by user types, devices, or use cases) helps craft compelling narratives that resonate with diverse audiences.
+- **User Understanding**: Analyzing user demographics and behaviors provides valuable insights for product development and strategic decisions.
+
+By framing data insights in a story format, analysts can ensure their findings are not just understood, but also actionable.
+
+#### Ethics in Data Analysis
+
+Ethical considerations are crucial in the field of data analysis to ensure fairness and privacy. Analysts should:
+- **Minimize Bias**: Approach analyses with minimal preconceptions to avoid introducing bias into results.
+- **Data Privacy**: Protecting data privacy and ensuring responsible de-identification practices are key to maintaining ethical standards in data analysis.
+
+Responsible data analysis helps build trust and integrity in the insights derived from the data.
