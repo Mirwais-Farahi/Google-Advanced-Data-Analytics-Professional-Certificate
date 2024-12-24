@@ -220,7 +220,7 @@ Deloitte’s approach to addressing these challenges followed the **PACE framewo
 
 ---
 
-### **1. Plan**
+#### **1. Plan**
 
 In the planning phase, Deloitte focused on understanding the client’s goals and aligning the solutions with their business needs.
 
@@ -239,7 +239,7 @@ In the planning phase, Deloitte focused on understanding the client’s goals an
 
 ---
 
-### **2. Analyze**
+#### **2. Analyze**
 
 The analysis phase involved thoroughly understanding the client’s existing data and identifying gaps.
 
@@ -250,7 +250,7 @@ The analysis phase involved thoroughly understanding the client’s existing dat
 
 ---
 
-### **3. Construct**
+#### **3. Construct**
 
 During the construction phase, Deloitte focused on designing and building the solution.
 
@@ -261,7 +261,7 @@ During the construction phase, Deloitte focused on designing and building the so
 
 ---
 
-### **4. Execute**
+#### **4. Execute**
 
 The execution phase focused on implementing the solution and ensuring that the client could effectively use the new tools.
 
@@ -272,7 +272,7 @@ The execution phase focused on implementing the solution and ensuring that the c
 
 ---
 
-### **Results**
+#### **Results**
 
 By following the PACE framework, Deloitte achieved several key outcomes:
 
@@ -284,6 +284,6 @@ By following the PACE framework, Deloitte achieved several key outcomes:
 
 ---
 
-### **Conclusion**
+#### **Conclusion**
 
 Deloitte’s use of the **PACE framework** and EDA practices helped their client transform its data management and analysis processes. By rebuilding the data infrastructure and creating dynamic dashboards, Deloitte enabled the client to uncover hidden insights and make more agile business decisions, ultimately improving revenue and operational efficiency. This case demonstrates the value of structured data practices in solving complex business problems and driving success.
