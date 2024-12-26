@@ -312,3 +312,133 @@ Ethical considerations are crucial in the field of data analysis to ensure fairn
 - **Data Privacy**: Protecting data privacy and ensuring responsible de-identification practices are key to maintaining ethical standards in data analysis.
 
 Responsible data analysis helps build trust and integrity in the insights derived from the data.
+
+### Combining PACE and EDA Practices
+
+Combining the PACE framework with Exploratory Data Analysis (EDA) can lead to more effective data analysis.
+
+#### PACE and EDA
+
+- **PACE Framework**: Stands for Plan, Analyze, Construct, and Execute, helping data professionals stay focused on project goals.
+- **EDA Across PACE**:
+  - EDA is not limited to the analysis phase; it can be applied to all stages of PACE.
+  - For instance:
+    - Discovering data patterns aligns with the **Planning** phase.
+    - Presenting findings is crucial for the **Execution** phase.
+
+#### Importance of Communication and Ethical Considerations
+
+- **Clear Communication**:
+  - Ensures stakeholders understand project goals, reducing wasted time and effort.
+- **Ethical Responsibility**:
+  - Data professionals must accurately represent data, even if it involves:
+    - Pushing back against stakeholder pressure.
+    - Addressing unrealistic timelines.
+
+### The EDA Process
+![Alt text](../images/EDA.png "Optional title")
+#### Characteristics of EDA
+
+- **Iterative and Non-Sequential**:
+  - The six practices of EDA are not performed in a fixed order.
+  - Practices are repeated as needed based on the specific dataset.
+- **Flexibility**:
+  - The EDA process is tailored to each dataset.
+  - Data professionals rely on logic and experience to determine the appropriate practices and their sequence.
+
+#### EDA and Ethical Machine Learning
+
+- **Human Augmentation**:
+  - EDA promotes human oversight in AI and machine learning.
+  - Data scientists can identify and mitigate bias, imbalance, and inaccuracies in data.
+- **Bias Evaluation**:
+  - Through methodical EDA, biases in data can be detected and addressed.
+  - Ensures fairness and ethical considerations in machine learning models.
+
+### Glossary Terms from Module 1
+
+#### Terms and Definitions from Course 3, Module 1
+
+- **Bias**:  
+  Refers to organizing data results in groupings, categories, or variables that are misrepresentative of the whole dataset.
+
+- **Cleaning**:  
+  The process of removing errors that might distort your data or make it less useful; one of the six practices of EDA.
+
+- **Data Visualization**:  
+  A graph, chart, diagram, or dashboard created as a representation of information.
+
+- **Discovering**:  
+  The process data professionals use to familiarize themselves with the data so they can start conceptualizing how to use it; one of the six practices of EDA.
+
+- **Exploratory Data Analysis (EDA)**:  
+  The process of investigating, organizing, and analyzing datasets and summarizing their main characteristics, often by employing data wrangling and visualization methods.  
+  The six main practices of EDA are: discovering, structuring, cleaning, joining, validating, and presenting.
+
+- **Joining**:  
+  The process of augmenting data by adding values from other datasets; one of the six practices of EDA.
+
+- **PACE**:  
+  A workflow data professionals can use to remain focused on the end goal of any given dataset; stands for Plan, Analyze, Construct, and Execute.
+
+- **Presenting**:  
+  The process of making a cleaned dataset available to others for analysis or further modeling; one of the six practices of EDA.
+
+- **Structuring**:  
+  The process of taking raw data and organizing or transforming it to be more easily visualized, explained, or modeled; one of the six practices of EDA.
+
+- **Validating**:  
+  The process of verifying that the data is consistent and high quality; one of the six practices of EDA.
+
+
+## **Discovering** is the Beginning of an Investigating
+
+### Import Datasets with Python
+
+#### 1. Import Data from CSV File
+
+- Using `open()`:
+  ```python
+  with open('example_filepath/file', mode='r') as file:
+      data = file.read()
+'r' read
+'w' write
+'a' append
+'+' create new file
+
+import pandas as pd
+df = pd.read_csv('example_filepath/file')
+
+#### 2. Importing Data from Databases
+
+- Databases like BigQuery are valuable resources for storing and accessing large datasets.
+You can directly query and retrieve data from BigQuery using SQL, either through their platform or your local environment.
+
+### Pandas Methods for the Discovery of a Dataset
+
+#### Understanding Your Dataset
+
+- **`DataFrame.head()`**:  
+  Displays the first few rows (default is 5) of your dataset, providing a glimpse of its structure and content.
+
+- **`DataFrame.info()`**:  
+  Provides a concise summary of your dataset, including:
+  - Data types
+  - Missing values
+  - Memory usage
+
+#### Descriptive Statistics
+
+- **`DataFrame.describe()`**:  
+  Generates descriptive statistics such as:
+  - Mean
+  - Minimum and maximum values
+  - Quartiles  
+  This helps you understand the distribution of your data.
+
+- **`DataFrame.shape`**:  
+  Returns the dimensions of your dataset as a tuple `(rows, columns)`. Note that this is an **attribute**, not a method, so it does not require parentheses.
+
+- **`DataFrame.to_datetime`**:
+  Convert the Date Joined column to datetime => companies["Date Joined"] = pd.to_datetime(companies["Date Joined"])
+
