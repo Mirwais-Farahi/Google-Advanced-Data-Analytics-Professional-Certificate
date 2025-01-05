@@ -355,6 +355,7 @@ Combining the PACE framework with Exploratory Data Analysis (EDA) can lead to mo
   - Through methodical EDA, biases in data can be detected and addressed.
   - Ensures fairness and ethical considerations in machine learning models.
 
+More about EDA Process: [Reference guide: The EDA process](../images/Reference_guide_The_EDA_process.pdf)
 ### Glossary Terms from Module 1
 
 #### Terms and Definitions from Course 3, Module 1
@@ -427,6 +428,8 @@ You can directly query and retrieve data from BigQuery using SQL, either through
   - Missing values
   - Memory usage
 
+For more information about Python functions for the discovery of a dataset: [Python functions for the discovery](../images/Reference_guide_Python_functions_for_the_discovery.pdf)
+
 #### Descriptive Statistics
 
 - **`DataFrame.describe()`**:  
@@ -441,7 +444,7 @@ You can directly query and retrieve data from BigQuery using SQL, either through
 
 - **`DataFrame.to_datetime`**:
   Convert the Date Joined column to datetime => companies["Date Joined"] = pd.to_datetime(companies["Date Joined"])
-
+    - [Reference guide: Datetime manipulation](../images/Reference_guide_Datetime_manipulation.pdf)
 ### Create Structure from Raw Data
 
 Structuring involves organizing, gathering, separating, grouping, and filtering data to gain insights.  
@@ -462,6 +465,7 @@ It is a crucial step in data analysis that helps make raw data more manageable a
 
 - **Slicing**:  
   Extracting a smaller portion of data by selecting specific rows and/or columns for examination from different perspectives.
+- For more about Python functions for structuring a dataset: [Reference Guide](../images/Reference_guide_Python_functions_for_structuring_a_dataset.pdf)
 
 ### Histograms
 
