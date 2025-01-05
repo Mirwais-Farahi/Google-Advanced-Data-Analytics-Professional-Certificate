@@ -50,7 +50,7 @@ The PACE workflow provides a structured and efficient approach to data projects,
 - The PACE workflow is iterative. As you progress, you may revisit earlier stages to refine your approach, incorporate new data, or enhance your analysis and communication.
 
 
-## Welcome to module 1
+## module 1
 ### Exploring the Six Practices of Exploratory Data Analysis (EDA)
 
 #### Understanding EDA Practices
@@ -441,4 +441,336 @@ You can directly query and retrieve data from BigQuery using SQL, either through
 
 - **`DataFrame.to_datetime`**:
   Convert the Date Joined column to datetime => companies["Date Joined"] = pd.to_datetime(companies["Date Joined"])
+
+### Create Structure from Raw Data
+
+Structuring involves organizing, gathering, separating, grouping, and filtering data to gain insights.  
+It is a crucial step in data analysis that helps make raw data more manageable and insightful.
+
+#### Methods of Structuring Data
+
+- **Sorting**:  
+  Arranging data in a meaningful order, such as ascending or descending, to better understand its distribution.
+
+- **Extraction**:  
+  Retrieving specific columns of data from a dataset for further analysis, comparisons, or visualization.
+
+#### More Methods of Structuring Data
+
+- **Filtering**:  
+  Selecting a subset of data based on specific criteria to focus on relevant information.
+
+- **Slicing**:  
+  Extracting a smaller portion of data by selecting specific rows and/or columns for examination from different perspectives.
+
+### Histograms
+
+Histograms are essential for understanding the characteristics of a dataset, such as:  
+- The shape of the distribution  
+- Presence of outliers  
+- The center and spread of the data  
+
+- The following example is a histogram of the number of seconds between eruptions of the Old Faithful geyser in Yellowstone National Park, Wyoming, USA. 
+
+![histogram](../images/histogram.png)
+
+#### Interpreting Histograms
+
+- Interpreting histograms involves understanding the **shape**, **center**, and **spread** of the distribution.
+- Common shapes of histograms include:
+  - **Symmetric**: A symmetric histogram has a bell-shaped curve with a peak in the middle, indicating that the data is evenly distributed around the mean. This is also known as a normal, or Gaussian, distribution.
+  ![symmetric histogram](../images/symmetric_histogram.png)
+  
+  - **Skewed**: A skewed histogram has a longer tail on one side than the other. A right-skewed histogram has a longer tail on the right side, indicating that there are more data points on the left side of the histogram. 
+  ![skewed histogram](../images/skewed_histogram.png.png)
+  A left-skewed distribution has a longer tail on the left side, indicating more data points on the right side.
+  ![left-skewed histogram](../images/left-skewed_histogram.png.png)
+  - **Bimodal**: A bimodal histogram has two distinct peaks, indicating that the data has two modes.
+  ![bimodal histogram](../images/bimodal_histogram.png.png) 
+  
+  - **Uniform** : A uniform histogram has a flat distribution, indicating that all data points are evenly distributed.
+  Each shape provides insights into the data's distribution.
+  ![uniform histogram](../images/uniform_histogram.png.png)
+
+#### Creating Histograms
+
+- Python libraries such as **seaborn** and **matplotlib** make it easy to create histograms.
+- Commonly used functions include:
+  - `plt.hist()` (from matplotlib) => plt.hist(x, bins=10, …)
+  `
+  # Plot histogram with matplotlib pyplot
+  plt.hist(df['seconds'], bins=range(40, 101, 3))
+  plt.xticks(range(35, 101, 3))
+  plt.yticks(range(0, 61, 10))
+  plt.xlabel('seconds')
+  plt.ylabel('count')
+  plt.title('Old Faithful geyser - time between eruptions')
+  plt.show();
+  `
+  - `sns.histplot()` (from seaborn)  => sns.histplot(x, bins, binrange, binwidth …)
+  `
+  # Plot histogram with seaborn
+  ax = sns.histplot(df['seconds'], binrange=(40, 100), binwidth=5, color='#4285F4', alpha=1)
+  ax.set_xticks(range(35, 101, 5))
+  ax.set_yticks(range(0, 61, 10))
+  plt.title('Old Faithful geyser - time between eruptions')
+  plt.show();
+  `
+- These functions offer flexibility in customizing the histogram's appearance, such as:
+  - Defining bin sizes
+  - Setting ranges
+
+## Clean Your Data
+
+### Missing Data and Its Implications
+
+Missing data, represented as **N/A**, **NaN**, or blanks, poses a significant challenge in data analysis as it can lead to inaccurate conclusions if not addressed properly.  
+The impact of missing data can range from negligible to substantial depending on the amount and nature of the missing values. It can hinder analysis and requires careful communication with stakeholders.
+
+#### Methods for handling missing data
+
+- **Requesting Data Owners**:  
+  - Asking data owners to fill in missing values is the ideal solution, especially when dealing with large quantities of missing data.
+
+- **Deleting Missing Data**:  
+  - This approach may be appropriate if:
+    - The percentage of missing values is low.
+    - The deletion doesn't significantly bias the analysis.  
+  - **Caution**: Deleting missing data can skew results if the missing values are not random.
+
+#### Ethical Considerations
+
+- Data professionals must consider the **ethical implications** of their chosen approach when addressing missing data.
+- **Transparency**:  
+  - It’s essential to be transparent with stakeholders about:
+    - The approach used to handle missing data.
+    - The potential impact of missing data on the analysis.
+- **Thoughtful Consideration**:  
+  - The quantity and importance of missing values should guide the strategy for handling them.
+
+### Data deduplication with Python
+- A simple way to identify duplicates is to use the  duplicated() function from Pandas. duplicated() is a method of the DataFrame class.  
+
+`
+print(df.duplicated()) # drop duplicates of exact matches of entire rows of data
+
+df = df.drop_duplicates(subset='style') #
+
+print(df.duplicated(subset=['type'], keep='last')) # duplicates in only one column (subset) of values and labeling the last duplicates as “false,” so that they are “kept”
+`
+
+### Outliers
+
+Outliers are data points that are significantly different from other data points in a dataset.
+
+#### Types of Outliers
+
+- **Global Outliers**:  
+  - Completely different from the rest of the data.  
+  - May result from data entry errors or represent extreme, unusual values.  
+  - Have no association with other outliers.
+
+- **Contextual Outliers**:  
+  - Appear as normal data points under certain conditions but become outliers under most other conditions.  
+  - Example: A spike in movie sales a decade after a film's release would be considered a contextual outlier.
+
+- **Collective Outliers**:  
+  - A group of abnormal points that follow similar patterns and are isolated from the rest of the population.
+
+#### Why Outliers are Important
+
+- **Impact on Analysis**:  
+  - Outliers can skew the results of your analysis and lead to inaccurate conclusions.
+- **Role in EDA**:  
+  - It's crucial to identify and address outliers during the exploratory data analysis (EDA) phase.
+
+#### Dealing with Outliers
+
+- **Identification**:  
+  - Use data visualization techniques like:
+    - Scatter plots
+    - Box plots
+    - Histograms  
+
+- **Actions**:  
+  - Decide to:
+    - Remove outliers.
+    - Replace them with other values.
+    - Keep them in the dataset, depending on the context.
+
+- **Ethical Considerations**:  
+  - Carefully consider the ethical implications before removing or manipulating outliers.
+
+Hanndle outlier using python: [Reference_guide_ How_to_handle_outliers](../images/Reference_guide_%20How_to_handle_outliers.pdf)
+
+### Data transformation
+#### Change Categorical Data to Numerical Data
+
+##### What is Categorical Data?
+
+- **Definition**:  
+  Categorical data is qualitative data divided into a limited number of groups, often represented with words.  
+
+- **Examples**:  
+  - Demographics such as:
+    - Occupation
+    - Ethnicity
+    - Educational attainment
+
+##### Why Convert Categorical Data?
+
+- **Model Compatibility**:  
+  - Many data models and algorithms are designed for numerical data.  
+  - These models may not work optimally with raw categorical data.
+
+- **Facilitates Analysis**:  
+  - Converting categorical data to numerical form enables:
+    - Analysis
+    - Prediction
+    - Classification
+    - Other data operations
+
+### Encoding Categorical Data
+
+#### Overview
+
+Transforming categorical data into numerical format is crucial for analysis and machine learning models, as many algorithms require numerical input.  
+Two common techniques are **Label Encoding** and **One-Hot Encoding**.
+
+---
+
+#### Encoding Techniques
+
+1. **Label Encoding**:  
+   - Assigns a unique numerical value to each category in the dataset.  
+   - **Example**:  
+     Suppose you have a dataset with a column `Fruit`:
+     ```
+     Fruit
+     -----
+     Apple
+     Banana
+     Cherry
+     Apple
+     Banana
+     ```
+     After label encoding:
+     ```
+     Fruit (Encoded)
+     ---------------
+     0
+     1
+     2
+     0
+     1
+     ```
+     Here, `Apple` = 0, `Banana` = 1, `Cherry` = 2.
+
+   - **Use Case**:  
+     Suitable when categories have a **natural order** (e.g., low, medium, high) or when using algorithms like **decision trees** or **random forests**, which handle numerical labels without assuming order.
+
+---
+
+2. **One-Hot Encoding**:  
+   - Creates dummy variables (binary indicators) for each category.  
+   - **Example**:  
+     Using the same dataset with a column `Fruit`:
+     ```
+     Fruit
+     -----
+     Apple
+     Banana
+     Cherry
+     Apple
+     Banana
+     ```
+     After one-hot encoding:
+     ```
+     Apple  Banana  Cherry
+     -----  ------  ------
+     1      0       0
+     0      1       0
+     0      0       1
+     1      0       0
+     0      1       0
+     ```
+
+   - **Use Case**:  
+     Ideal when categories do **not have a natural order** or when working with **dimensionality reduction** techniques like **PCA**.
+
+---
+
+#### Choosing the Right Encoding Method
+
+- **Label Encoding**:
+  - **Pros**: Efficient for datasets with many categories.  
+  - **Cons**: May introduce unintended ordinal relationships between categories if not handled correctly.
+  - **Example Use Case**: Encoding the `Education` column in a dataset where levels (High School < Bachelor's < Master's < Ph.D.) naturally follow an order.
+
+- **One-Hot Encoding**:
+  - **Pros**: Avoids introducing ordinal relationships, ensuring no implicit ranking of categories.
+  - **Cons**: Can lead to **high dimensionality** for datasets with many unique categories.  
+  - **Example Use Case**: Encoding the `City` column where cities like "New York," "London," and "Tokyo" have no inherent order.
+
+---
+
+#### Practical Implementation in Python
+
+- **Label Encoding**:
+  ```
+  from sklearn.preprocessing import LabelEncoder
+
+  # Example dataset
+  fruits = ['Apple', 'Banana', 'Cherry', 'Apple', 'Banana']
+  label_encoder = LabelEncoder()
+  encoded_labels = label_encoder.fit_transform(fruits)
+  print(encoded_labels)  # Output: [0, 1, 2, 0, 1]
+from sklearn.preprocessing import OneHotEncoder
+import numpy as np
+
+# Example dataset
+fruits = np.array(['Apple', 'Banana', 'Cherry', 'Apple', 'Banana']).reshape(-1, 1)
+one_hot_encoder = OneHotEncoder(sparse=False)
+one_hot_encoded = one_hot_encoder.fit_transform(fruits)
+print(one_hot_encoded)
+# Output:
+# [[1. 0. 0.]
+#  [0. 1. 0.]
+#  [0. 0. 1.]
+#  [1. 0. 0.]
+#  [0. 1. 0.]]
+```
+
+- Review the reference guide for data cleaning in python: [Reference guide: Data cleaning in Python](../images/Reference_guide_%20Data_cleaning_in_Python.pdf)
+
+### The Value of Input Validation
+
+#### Data Validation: Why and What to Look For?
+
+- **Why Validate Data?**  
+  - Ensures **accuracy** in business decisions.  
+  - Improves the performance of complex models.
+
+- **Key Aspects to Check During Validation**:  
+  - **Data Format Consistency**: Ensure all data entries follow the expected format.  
+  - **Range Consistency**: Verify that values fall within acceptable ranges.  
+  - **Data Type Consistency**: Confirm that all entries match the expected data types.
+
+---
+
+#### Joining in Exploratory Data Analysis (EDA)
+
+- **What is Joining?**  
+  - The process of augmenting data by adding values from other datasets.  
+  - Similar to a chef enhancing a recipe by adding more ingredients.
+
+- **Key Considerations When Joining Datasets**:  
+  - Ensure **formatting** and **data entries** align.  
+  - Verify that data types are consistent across datasets to maintain data integrity.
+
+---
+
+#### Summary
+
+Validating input data and ensuring consistency during joining are foundational practices in **EDA**. They enhance data quality, leading to better insights and improved decision-making.
 
